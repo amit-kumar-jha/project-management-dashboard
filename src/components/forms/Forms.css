@@ -1,0 +1,44 @@
+.modal-button {
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%; /* make button full width */
+  text-align: center; /* center the text */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-button:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+}
+
+.modal-button:active {
+  background-color: #3730a3;
+  transform: translateY(0);
+}
+
+.form {
+  border-radius: 12px;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+/* Label styling */
+.form label {
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+}
