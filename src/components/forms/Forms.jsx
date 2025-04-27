@@ -9,8 +9,9 @@ function Forms({ projects, employees, setProjects, setEmployees }) {
   const [showEmployeeModal, setShowEmployeeModal] = useState(false);
   const [showAssignModal, setShowAssignModal] = useState(false);
   return (
-    <div>
+    <div className="title">
       {" "}
+      <div className="title-text">All Projects</div>
       <div className="actions">
         <button className="button" onClick={() => setShowProjectModal(true)}>
           + Add Project

@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+# Employee Management Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project provides a platform for managing employees, including listing, deleting, and displaying details of each employee. It has a responsive UI that adapts to desktop and mobile devices.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before you can run the project, make sure you have the following installed:
 
-### `npm start`
+- [Node.js](https://nodejs.org/) (version 14 or above)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+If you don't have them installed, follow the installation instructions on the official websites.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Steps to Run the Project
 
-### `npm test`
+Follow these steps to set up and run the project locally.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clone the Repository
 
-### `npm run build`
+Open your terminal and run the following command to clone the repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+git clone <repository-url>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Navigate to the Project Folder
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+cd employee-management
 
-### `npm run eject`
+### 3. Install Dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Run the Development Server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm run dev
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# ✅ Completed Features
 
-## Learn More
+## 1. Add Project
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Add a new project with the following fields:
+  - **Project Name**
+  - **Deadline** (Date)
+  - **Priority** (Low / Medium / High)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 2. Add Employee
 
-### Code Splitting
+- Add a new employee with the following fields:
+  - **Name**
+  - **Role** (e.g., Developer, Manager)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 3. Assign Employee to Project
 
-### Analyzing the Bundle Size
+- Allow assigning one or more employees to a specific project.
+- View the list of assigned employees for each project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 4. List View
 
-### Making a Progressive Web App
+- Display all projects in a **table** (for desktop) and **card view** (for mobile).
+- Each project shows:
+  - **Project Name**
+  - **Deadline**
+  - **Priority**
+  - **Assigned Employees**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 5. Delete a Project or Employee
 
-### Advanced Configuration
+- Delete any project or employee from the list with confirmation popups to prevent accidental deletions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 6. Mark a Project as Completed
 
-### Deployment
+- Update a project’s **status** to "Completed" once it's finished.
+- Visually differentiate completed projects from ongoing ones.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 7. Filter Projects
 
-### `npm run build` fails to minify
+- Filter the project list based on:
+  - **Priority** (Low, Medium, High)
+  - **Status** (Completed, Ongoing)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 8. Save Data in localStorage
+
+- Automatically save all:
+  - Projects
+  - Employees
+  - Assignments
+  - Status updates
+- Data persists even after page refresh (simulating backend persistence).
+
+## 9. Export Excel Report
+
+- Export a complete Excel report that includes:
+  - List of projects
+  - Assigned team members
+  - Project priority
+  - Project status (Completed/Ongoing)
+- Downloadable in `.xlsx` format for offline record keeping.
+
+## 10. Dashboard Summary
+
+- Show a quick dashboard with summarized statistics:
+  - **Total number of projects**
+  - **Total number of completed projects**
+  - **Active Projects**
+  - **EmployeeList**
+
+# 🚀 Highlights of the Project
+
+## Complete CRUD Functionality
+
+- Create, Read, Update (Status), and Delete operations for both Projects and Employees.
+
+## Mobile Responsive Design
+
+- Adaptive views — Table for Desktop, Cards for Mobile.
+
+## Smooth User Experience
+
+- Modal dialogs for delete confirmations, filter dropdowns, clean layout.
+
+## LocalStorage Persistence
+
+- No backend needed! All data saved locally and survives page refresh.
+
+## Excel Export
+
+- One-click export of full project data into a ready-to-use Excel file (.xlsx).
+
+## Extensible Architecture
+
+- Easy to plug in a real backend later (like Node.js, Firebase, etc.) with minimal code change.

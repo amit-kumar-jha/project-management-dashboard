@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import "./Header.css";
 
 function Header() {
@@ -6,12 +8,26 @@ function Header() {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <h1>
-            ProjectManager<span className="logo-highlight">.io</span>
-          </h1>
+          <NavLink to="/">
+            <h1>
+              ProjectManager<span className="logo-highlight">.io</span>
+            </h1>
+          </NavLink>
         </div>
         <nav className="nav-links">
-          <a href="#dashboard">Dashboard</a>
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
+            Dashboard
+          </NavLink>
+          <NavLink
+            to="/project"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
+            Projects
+          </NavLink>
         </nav>
       </div>
     </header>

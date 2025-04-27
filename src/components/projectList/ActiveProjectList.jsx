@@ -1,14 +1,11 @@
 import { useState } from "react";
-import ExportExcel from "../ExportExcell";
 import formatDate from "../../utils/formatDate";
 import TruncatedText from "../TruncatedText";
 import Dialog from "../dialog/Dialog";
 
 import "./ProjectList.css";
 
-function ProjectList({ projects, employees, setProjects }) {
-  const [filterPriority, setFilterPriority] = useState("");
-  const [filterStatus, setFilterStatus] = useState("");
+function ActiveProjectList({ projects, employees, setProjects }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [deleteProjectId, setDeleteProjectId] = useState(null);
 
@@ -30,48 +27,19 @@ function ProjectList({ projects, employees, setProjects }) {
       .join(", ");
   };
 
-  const filteredProjects = projects.filter((project) => {
-    return (
-      (filterPriority ? project.priority === filterPriority : true) &&
-      (filterStatus ? project.status === filterStatus : true)
-    );
-  });
+  const activeProjects = projects.filter(
+    (project) => project.status === "Active"
+  );
 
   const onDeleteClick = (id) => {
-    setDeleteProjectId(id); // Set the project id to delete
-    setShowDeleteModal(true); // Open the delete confirmation modal
+    setDeleteProjectId(id);
+    setShowDeleteModal(true);
   };
 
   return (
     <>
       <div className="project-grid">
-        <div className="title">
-          <div className="filters">
-            <select
-              onChange={(e) => setFilterPriority(e.target.value)}
-              value={filterPriority}
-            >
-              <option value="">All Priorities</option>
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option>
-            </select>
-
-            <select
-              onChange={(e) => setFilterStatus(e.target.value)}
-              value={filterStatus}
-            >
-              <option value="">All Statuses</option>
-              <option value="Active">Active</option>
-              <option value="Completed">Completed</option>
-            </select>
-          </div>
-          <div className="export-excel">
-            <ExportExcel projects={projects} employees={employees} />
-          </div>
-        </div>
-
-        {/* Desktop Table */}
+        <div className="title-text">Active Projects</div>
         <div className="project-table">
           <div className="table-wrapper">
             <table>
@@ -81,20 +49,17 @@ function ProjectList({ projects, employees, setProjects }) {
                   <th>Deadline</th>
                   <th>Priority</th>
                   <th>Assigned Employees</th>
-                  <th>Status</th>
                   <th>Actions</th>
                 </tr>
               </thead>
-
               <tbody>
-                {filteredProjects.length > 0 ? (
-                  filteredProjects.map((project) => (
+                {activeProjects.length > 0 ? (
+                  activeProjects.map((project) => (
                     <tr key={project.id}>
                       <td>{project.name}</td>
                       <td>{formatDate(project.deadline)}</td>
                       <td>{project.priority}</td>
                       <td>
-                        {" "}
                         {getEmployeeNames(project.employees) ? (
                           <TruncatedText
                             text={getEmployeeNames(project.employees)}
@@ -104,17 +69,14 @@ function ProjectList({ projects, employees, setProjects }) {
                           "-"
                         )}
                       </td>
-                      <td>{project.status}</td>
                       <td>
                         <div className="button-gap">
-                          {project.status !== "Completed" && (
-                            <button
-                              className="button"
-                              onClick={() => handleComplete(project.id)}
-                            >
-                              Complete
-                            </button>
-                          )}
+                          <button
+                            className="button"
+                            onClick={() => handleComplete(project.id)}
+                          >
+                            Complete
+                          </button>
                           <button
                             className="delete-button"
                             onClick={() => onDeleteClick(project.id)}
@@ -127,8 +89,8 @@ function ProjectList({ projects, employees, setProjects }) {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="6" className="no-data">
-                      No projects available.
+                    <td colSpan="5" className="no-data">
+                      No active projects available.
                     </td>
                   </tr>
                 )}
@@ -139,8 +101,8 @@ function ProjectList({ projects, employees, setProjects }) {
 
         {/* Mobile Cards */}
         <div className="project-cards">
-          {filteredProjects.length > 0 ? (
-            filteredProjects.map((project) => (
+          {activeProjects.length > 0 ? (
+            activeProjects.map((project) => (
               <div key={project.id} className="card">
                 <h3>{project.name}</h3>
                 <p>
@@ -160,18 +122,13 @@ function ProjectList({ projects, employees, setProjects }) {
                     "-"
                   )}
                 </p>
-                <p>
-                  <strong>Status:</strong> {project.status}
-                </p>
                 <div className="card-actions">
-                  {project.status !== "Completed" && (
-                    <button
-                      className="button"
-                      onClick={() => handleComplete(project.id)}
-                    >
-                      Complete
-                    </button>
-                  )}
+                  <button
+                    className="button"
+                    onClick={() => handleComplete(project.id)}
+                  >
+                    Complete
+                  </button>
                   <button
                     className="delete-button"
                     onClick={() => onDeleteClick(project.id)}
@@ -182,7 +139,9 @@ function ProjectList({ projects, employees, setProjects }) {
               </div>
             ))
           ) : (
-            <div className="card no-data-card">No Projects Available</div>
+            <div className="card no-data-card">
+              No active projects available.
+            </div>
           )}
         </div>
 
@@ -216,4 +175,4 @@ function ProjectList({ projects, employees, setProjects }) {
   );
 }
 
-export default ProjectList;
+export default ActiveProjectList;

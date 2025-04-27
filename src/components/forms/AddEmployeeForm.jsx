@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import "./Forms.css";
 
 function AddEmployeeForm({ setEmployees, closeModal }) {
@@ -46,7 +47,9 @@ function AddEmployeeForm({ setEmployees, closeModal }) {
         required
       />
       <select value={role} onChange={(e) => setRole(e.target.value)} required>
-        <option value="">Select Role</option>
+        <option value="" disabled>
+          Select Role
+        </option>
         <option value="Developer">Developer</option>
         <option value="Manager">Manager</option>
         <option value="Designer">Designer</option>

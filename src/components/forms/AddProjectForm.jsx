@@ -1,10 +1,11 @@
 import { useState } from "react";
+
 import "./Forms.css";
 
 function AddProjectForm({ setProjects, closeModal }) {
   const [name, setName] = useState("");
   const [deadline, setDeadline] = useState("");
-  const [priority, setPriority] = useState("Low");
+  const [priority, setPriority] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
@@ -18,6 +19,11 @@ function AddProjectForm({ setProjects, closeModal }) {
 
     if (!deadline) {
       setError("Please select a deadline.");
+      return;
+    }
+
+    if (!priority) {
+      setError("Please select a priority.");
       return;
     }
 
@@ -60,6 +66,9 @@ function AddProjectForm({ setProjects, closeModal }) {
         required
       />
       <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+        <option value="" disabled>
+          Priority
+        </option>
         <option>Low</option>
         <option>Medium</option>
         <option>High</option>

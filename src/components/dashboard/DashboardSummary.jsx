@@ -1,7 +1,10 @@
 import React from "react";
+import ActiveProjectList from "../projectList/ActiveProjectList";
+import EmployeeList from "../employeeList/EmployeeList";
+
 import "./DashboardSummary.css";
 
-function DashboardSummary({ projects, employees }) {
+function DashboardSummary({ projects, employees, setProjects, setEmployees }) {
   const totalProjects = projects.length;
   const completedProjects = projects.filter(
     (project) => project.status === "Completed"
@@ -24,6 +27,16 @@ function DashboardSummary({ projects, employees }) {
           <h3>Completed Projects</h3>
           <p>{completedProjects}</p>
         </div>
+      </div>
+      <div className="padding-top">
+        <ActiveProjectList
+          projects={projects}
+          employees={employees}
+          setProjects={setProjects}
+        />
+      </div>
+      <div className="padding-top">
+        <EmployeeList employees={employees} setEmployees={setEmployees} />
       </div>
     </div>
   );
