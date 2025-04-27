@@ -19,8 +19,12 @@ function ExportExcel({ projects, employees }) {
   };
 
   return (
-    <button className="button" onClick={exportToExcel}>
-      Export Excel
+    <button
+      className="secondary-button"
+      disabled={projects?.length === 0}
+      onClick={exportToExcel}
+    >
+      Export to Excel
     </button>
   );
 }

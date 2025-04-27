@@ -1,4 +1,4 @@
-.project-grid {
+.employee-grid {
   background: #f9fafb;
   padding: 24px;
   border-radius: 12px;
@@ -28,7 +28,7 @@
   border-color: #6366f1;
 }
 
-.project-table {
+.employee-table {
   overflow-x: auto;
 }
 
@@ -36,7 +36,7 @@
   overflow-x: auto;
 }
 
-.project-cards {
+.employee-cards {
   display: none;
 }
 
@@ -65,16 +65,17 @@
   border-radius: 8px;
   color: #999;
 }
+
 .button-gap {
   display: flex;
   gap: 10px;
 }
 
 @media (max-width: 768px) {
-  .project-table {
+  .employee-table {
     display: none;
   }
-  .project-cards {
+  .employee-cards {
     display: block;
   }
 }

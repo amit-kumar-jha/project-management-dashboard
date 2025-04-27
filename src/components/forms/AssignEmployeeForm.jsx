@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./Forms.css"; // Assuming you have some CSS for styling
+
+import "./Forms.css";
 
 function AssignEmployeeForm({ projects, employees, setProjects, closeModal }) {
   const [selectedProjectId, setSelectedProjectId] = useState("");
@@ -86,11 +87,7 @@ function AssignEmployeeForm({ projects, employees, setProjects, closeModal }) {
         </select>
       </div>
 
-      <button
-        className="modal-button"
-        type="submit"
-        style={{ marginTop: "20px" }}
-      >
+      <button className="modal-button" type="submit">
         Assign
       </button>
     </form>

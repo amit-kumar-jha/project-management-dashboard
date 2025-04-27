@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./Dialog.css";
 
 function Dialog({ title, children, onClose }) {

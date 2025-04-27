@@ -3,10 +3,7 @@ function TruncatedText({ text, maxLength = 20 }) {
   const displayText = shouldTruncate ? text.slice(0, maxLength) + "..." : text;
 
   return (
-    <div
-      className="ellipsis-text"
-      title={text} // Full text on hover
-    >
+    <div className="ellipsis-text" title={text}>
       {displayText}
     </div>
   );

@@ -3,14 +3,11 @@ import {
   loadFromLocalStorage,
   saveToLocalStorage,
 } from "./utils/localStorageUtils";
-
-import ProjectList from "./components/projectList/ProjectList";
 import DashboardSummary from "./components/dashboard/DashboardSummary";
-
 import Loader from "./components/loader/Loader";
-
 import Header from "./components/header/Header";
-import Forms from "./components/forms/Forms";
+import { Route, Routes } from "react-router-dom";
+import ProjectPage from "./components/pages/ProjectPage";
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -43,19 +40,37 @@ function App() {
   return (
     <div>
       <Header />
+
       <div className="container">
-        <DashboardSummary projects={projects} />
-        <Forms
-          projects={projects}
-          employees={employees}
-          setProjects={setProjects}
-          setEmployees={setEmployees}
-        />
-        <ProjectList
-          projects={projects}
-          employees={employees}
-          setProjects={setProjects}
-        />
+        <Routes>
+          {/* Dashboard (Home) */}
+          <Route
+            path="/"
+            element={
+              <DashboardSummary
+                projects={projects}
+                employees={employees}
+                setProjects={setProjects}
+                setEmployees={setEmployees}
+              />
+            }
+          />
+          {/* Project Page */}
+          <Route
+            path="/project"
+            element={
+              <ProjectPage
+                projects={projects}
+                employees={employees}
+                setEmployees={setEmployees}
+                setProjects={setProjects}
+              />
+            }
+          />
+        </Routes>
+
+        {/* Modals and Export buttons */}
+        {/* keep your Modals, Buttons, ExportExcel, etc here if needed */}
       </div>
     </div>
   );
