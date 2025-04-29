@@ -42,8 +42,15 @@
   display: block;
 }
 
-.title {
+.form-title {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+
+@media (max-width: 1280px) {
+  .title-text {
+    padding-left: 20px;
+  }
 }

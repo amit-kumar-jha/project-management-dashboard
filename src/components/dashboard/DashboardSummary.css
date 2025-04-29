@@ -41,6 +41,12 @@
   padding: 10px 0 30px 0;
 }
 
+@media (max-width: 1280px) {
+  .welcome-section {
+    padding: 10px 0 30px 20px;
+  }
+}
+
 .summary-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
