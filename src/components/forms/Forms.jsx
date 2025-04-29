@@ -9,7 +9,7 @@ function Forms({ projects, employees, setProjects, setEmployees }) {
   const [showEmployeeModal, setShowEmployeeModal] = useState(false);
   const [showAssignModal, setShowAssignModal] = useState(false);
   return (
-    <div className="title">
+    <div className="form-title">
       {" "}
       <div className="title-text">All Projects</div>
       <div className="actions">

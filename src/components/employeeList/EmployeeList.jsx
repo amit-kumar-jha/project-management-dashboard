@@ -21,7 +21,7 @@ function EmployeeList({ employees, setEmployees }) {
 
   return (
     <div className="employee-grid">
-      <div className="title">
+      <div className="employee-title">
         <div className="title-text">Employee List</div>
         <div>
           <button className="button" onClick={() => setShowEmployeeModal(true)}>
